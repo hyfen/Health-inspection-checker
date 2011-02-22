@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110221234637) do
+ActiveRecord::Schema.define(:version => 20110222000329) do
 
   create_table "coords", :primary_key => "ESTABLISHMENT_ID", :force => true do |t|
     t.float "lat"
@@ -49,16 +49,21 @@ ActiveRecord::Schema.define(:version => 20110221234637) do
 
   add_index "establishments", ["address"], :name => "index_establishments_on_address"
 
-  create_table "inspections", :force => true do |t|
+  create_table "infractions", :force => true do |t|
     t.integer  "inspection_id"
-    t.integer  "establishment_id"
-    t.datetime "date"
-    t.string   "status"
     t.string   "infraction_details"
     t.string   "severity"
     t.string   "action"
     t.string   "court_outcome"
     t.string   "amount_fined"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "inspections", :force => true do |t|
+    t.integer  "establishment_id"
+    t.datetime "date"
+    t.string   "status"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
