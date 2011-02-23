@@ -10,4 +10,16 @@ class Establishment < ActiveRecord::Base
     return infractions
   end
   
+  def dirty?
+    self.inspections.dirty.size > 0
+  end
+  
+  def fuzzy_address
+    self.location.address.split(" ")[0..1].join(" ")
+  end
+  
+  def geocoded?
+    self.location != nil and self.location.geocoded?
+  end
+  
 end
