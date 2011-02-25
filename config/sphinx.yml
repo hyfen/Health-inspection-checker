@@ -1,0 +1,3 @@
+development:
+    bin_path: /usr/local/bin
+    searchd_binary_name: searchd

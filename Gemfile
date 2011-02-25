@@ -6,7 +6,16 @@ gem 'rails', '3.0.3'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3-ruby', :require => 'sqlite3'
-gem 'ruby-mysql'
+gem 'ruby-mysql', "< 2.9.4"
+
+gem 'foursquare2'
+gem 'multi_json'
+
+gem 'thinking-sphinx',
+  :git     => 'git://github.com/freelancing-god/thinking-sphinx.git',
+  :branch  => 'rails3',
+  :require => 'thinking_sphinx'
+
 
 # Use unicorn as the web server
 # gem 'unicorn'
