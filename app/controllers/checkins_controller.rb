@@ -1,8 +1,8 @@
 class CheckinsController < ApplicationController
   
   def check
-    debugger
-    @user = User.find(5)
+    # crude testing code. Check the first user's foursquare history against dinesafe info
+    @user = User.first
     @checkins = @user.toronto_food_checkins
     @establishments = []
     for checkin in @checkins
@@ -16,9 +16,5 @@ class CheckinsController < ApplicationController
       end
     end
   end
-  
-  def test
-    render :text => params
-  end
-  
+    
 end
