@@ -2,14 +2,16 @@ class CheckinsController < ApplicationController
   
   def check
     @user = User.first
-    @checkins = @user.food_checkins
+    @checkins = @user.toronto_food_checkins
     @establishments = []
     for checkin in @checkins
       address = checkin["venue"]["location"]["address"]
       name = checkin["venue"]["name"]
-      e = Establishment.search(address + " " + name, :match_mode => :any)[0]
-      unless 
-        @establishments << e
+      if address and name
+        e = Establishment.search(address + " " + name, :match_mode => :any)
+        unless e.empty?
+          @establishments << [checkin, e.first]
+        end
       end
     end
   end

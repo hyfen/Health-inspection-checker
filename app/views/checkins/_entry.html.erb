@@ -1,0 +1,13 @@
+<p>
+<%= entry[1].name %>
+<%= entry[0].venue.name %>
+<%= entry[0].venue.location.address %>
+<%= entry[1].address %>
+
+<span id="inspections">
+<% for inspection in entry[1].inspections %>
+	<a href="" class="inspection-icon <%= inspection.pretty_status %>">&nbsp;</a>
+<% end %>
+</span>
+
+</p>
