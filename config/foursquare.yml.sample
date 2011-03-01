@@ -1,0 +1,13 @@
+defaults: &defaults
+  foursquare_client_id: 
+  foursquare_client_secret: 
+  foursquare_callback_url: 
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
