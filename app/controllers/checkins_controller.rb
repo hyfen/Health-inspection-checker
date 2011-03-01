@@ -1,7 +1,8 @@
 class CheckinsController < ApplicationController
   
   def check
-    @user = User.first
+    debugger
+    @user = User.find(5)
     @checkins = @user.toronto_food_checkins
     @establishments = []
     for checkin in @checkins
@@ -14,6 +15,10 @@ class CheckinsController < ApplicationController
         end
       end
     end
+  end
+  
+  def test
+    render :text => params
   end
   
 end

@@ -16,6 +16,9 @@ gem 'thinking-sphinx',
   :branch  => 'rails3',
   :require => 'thinking_sphinx'
 
+gem 'oauth2'
+# gem 'authlogic'
+# gem 'authlogic_oauth2'
 
 # Use unicorn as the web server
 # gem 'unicorn'

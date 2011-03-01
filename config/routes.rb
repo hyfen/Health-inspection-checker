@@ -1,4 +1,12 @@
 Dinesafe::Application.routes.draw do
+
+  resource :oauth, :controller => "oauth" do
+    member do
+      get 'start'
+      get 'callback'
+    end
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
