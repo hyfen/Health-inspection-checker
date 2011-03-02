@@ -1,10 +1,19 @@
+body {
+	font-family: helvetica, arial, sans-serif;
+}
+
 a {
 	text-decoration: none;
 }
 
+.venue-block {
+	background-color: #eee;
+	margin-bottom: 10px;
+}
+.venue-info {
+}
 #inspections {
 	display: block;
-	float: right;
 }
 
 .inspection-icon {

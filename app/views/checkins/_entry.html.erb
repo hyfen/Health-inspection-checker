@@ -1,13 +1,14 @@
-<p>
-<%= entry[1].name %>
-<%= entry[0].venue.name %>
-<%= entry[0].venue.location.address %>
-<%= entry[1].address %>
+<div class="venue-block grid_12">
+	<h2><%= entry[0].venue.name %></h2>
+	<div class="venue-info grid_8 alpha">
+		<p>You've been here <%= entry[0].beenHere %> times, the last time on <%= Time.at entry[0].lastHereAt %></p>
+		<p>(Matched to: <%= entry[1].name %> / <%= entry[1].address %>)
+	</div>
 
-<span id="inspections">
-<% for inspection in entry[1].inspections %>
-	<a href="" class="inspection-icon <%= inspection.pretty_status %>">&nbsp;</a>
-<% end %>
-</span>
+	<div id="inspections" class="grid_4 omega">
+	<% entry[1].inspections.each do |inspection| %>
+		<a href="" class="inspection-icon <%= inspection.pretty_status %>">&nbsp;</a>
+	<% end %>
+	</div>
 
-</p>
+</div>

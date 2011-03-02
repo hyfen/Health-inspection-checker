@@ -5,7 +5,7 @@ class CheckinsController < ApplicationController
     @user = User.first
     @checkins = @user.toronto_food_checkins
     @establishments = []
-    for checkin in @checkins
+    @checkins[0..4].each do |checkin|
       address = checkin["venue"]["location"]["address"]
       name = checkin["venue"]["name"]
       if address and name
@@ -15,6 +15,7 @@ class CheckinsController < ApplicationController
         end
       end
     end
+    
   end
     
 end
