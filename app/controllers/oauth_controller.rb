@@ -1,6 +1,8 @@
 class OauthController < ApplicationController
+  
+  skip_before_filter :current_user
+  
   def start
-    puts callback_oauth_url
     redirect_to client.web_server.authorize_url(:redirect_uri => APP_CONFIG["foursquare_callback_url"], :response_type => "code")
   end
 
@@ -10,9 +12,16 @@ class OauthController < ApplicationController
     )
     
     # just save the token to a new user for now until session handling code is written
-    u = User.new
-    u.foursquare_token = @a.token
-    u.save
+    u = User.find_or_create_by_foursquare_token(@a.token)
+    session[:current_user_id] = u.id
+    u.get_foursquare_name
+    u.cache_checkins
+    redirect_to "/checkins/check"
+  end
+  
+  def logout
+    session[:current_user_id] = nil
+    redirect_to "/"
   end
 
   protected

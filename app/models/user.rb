@@ -21,4 +21,10 @@ class User < ActiveRecord::Base
     end
   end
   
+  def get_foursquare_name
+    client = Foursquare2::Client.new(:oauth_token => self.foursquare_token) 
+    c = client.user("self")
+    self.update_attribute("name", c["firstName"] + " " + c["lastName"])
+  end
+  
 end
