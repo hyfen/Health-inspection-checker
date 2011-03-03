@@ -5,7 +5,7 @@ class CheckinsController < ApplicationController
     # crude testing code. Check the first user's foursquare history against dinesafe info
     @checkins = @current_user.toronto_food_checkins
     @establishments = []
-    @checkins[0..4].each do |checkin|
+    @checkins.each do |checkin|
       address = checkin["venue"]["location"]["address"]
       name = checkin["venue"]["name"]
       if address and name

@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   
-  def cache_checkins
+  def cache_checkins!
     
     client = Foursquare2::Client.new(:oauth_token => self.foursquare_token)
     self.checkins = Base64.encode64(Marshal.dump(client.user_venue_history()["items"]))
@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
     end
   end
   
-  def get_foursquare_name
+  def get_foursquare_name!
     client = Foursquare2::Client.new(:oauth_token => self.foursquare_token) 
     c = client.user("self")
     self.update_attribute("name", c["firstName"] + " " + c["lastName"])

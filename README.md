@@ -41,7 +41,6 @@ Make sure to run rake ts:config, ts:in, and then ts:start to configure, index, a
 
 ## TODOs 
 
-- handling user sessions
 - better display of infractions for a venue
 - better matching between Dinesafe establishments and Foursquare venues
 - heat maps!
