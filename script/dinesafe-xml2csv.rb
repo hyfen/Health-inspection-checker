@@ -3,7 +3,7 @@
 require 'rubygems'
 require 'nokogiri'
 require 'rubygems'
-require 'fastercsv'
+require 'csv'
 require 'date'
 
 # input files
@@ -13,9 +13,9 @@ input_file = "Open_Data_Jan172009-Dec312010.xml"
 establishment_file = "establishments.csv"
 inspection_file = "inspections.csv"
 infraction_file = "infractions.csv"
-establishment_csv = FasterCSV.open(establishment_file, "w")
-inspection_csv = FasterCSV.open(inspection_file, "w")
-infraction_csv = FasterCSV.open(infraction_file, "w")
+establishment_csv = CSV.open(establishment_file, "w")
+inspection_csv = CSV.open(inspection_file, "w")
+infraction_csv = CSV.open(infraction_file, "w")
 
 
 class DinesafeDocument < Nokogiri::XML::SAX::Document
